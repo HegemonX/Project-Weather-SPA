@@ -1,0 +1,61 @@
+@import "./index.scss";
+
+.Header {
+}
+
+.Title {
+  // background-color: color(primary);
+  background: linear-gradient(200deg, color(primary), color(secondary));
+  padding: 1em 0.4em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    color: color(title);
+    margin: 0;
+  }
+  &::after {
+    display: block;
+  }
+}
+
+.Navbar {
+  &__navbar {
+    display: flex;
+    flex-flow: column;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background: color(secondary);
+    @include small {
+      flex-flow: row wrap;
+    }
+  }
+}
+
+.navbar {
+  &__item {
+    display: inline;
+    flex: 1 1 auto;
+
+    @include desktop {
+      max-width: 6em;
+    }
+  }
+  &__link {
+    color: color(title);
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 0;
+    border: 1px solid color(secondary-dark);
+    border-collapse: collapse;
+
+    &:hover {
+      background-color: color(secondary-dark);
+    }
+    &:active {
+    }
+  }
+}

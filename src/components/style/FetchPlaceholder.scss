@@ -1,0 +1,42 @@
+@import "./index.scss";
+
+.FetchPlaceholder {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+
+  &__icon {
+    position: absolute;
+    top: calc(50% - 5vh);
+    left: calc(50% - 5vh);
+    width: 10vh;
+    height: 10vh;
+    padding: 0.1em;
+    background: url(../static/icon/spinner.svg);
+    background-size: contain;
+  }
+}
+
+.FoundedCitiesFetchIcon {
+  min-height: 30vh;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: relative;
+  background: color(primary);
+
+  $icon: 50px;
+  &__icon {
+    position: absolute;
+    width: $icon;
+    height: $icon;
+    top: calc(50% - #{$icon} / 2);
+    left: calc(50% - #{$icon} / 2);
+    background-image: url(../static/icon/spinner.svg);
+    background-size: contain;
+  }
+}

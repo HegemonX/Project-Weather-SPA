@@ -1,0 +1,9 @@
+@import "./components/style/index";
+
+body {
+  margin: 0;
+  font-size: calc(14px + 0.3vh);
+  @include orientation {
+    font-size: calc(14px + 0.3vw);
+  }
+}

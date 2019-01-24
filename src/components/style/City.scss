@@ -1,0 +1,66 @@
+@import "./index.scss";
+
+.City {
+  padding: 0.5em;
+  // max-width: 900px;
+  justify-content: center;
+  @include small {
+  }
+  @include desktop {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+
+  &__header {
+    margin-bottom: 0.5em;
+    @include desktop {
+      min-width: 10em;
+    }
+  }
+
+  &__detail-info {
+    display: flex;
+    flex-wrap: wrap;
+    @include desktop {
+      display: block;
+    }
+
+    & > * {
+      flex: 1 1 auto;
+      padding: 5px;
+    }
+  }
+
+  &__weather {
+    display: flex;
+    flex-flow: column wrap;
+    // align-items: center;
+    @include small {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    @include desktop {
+      justify-content: flex-start;
+      max-width: 50em;
+    }
+  }
+  &__title {
+    color: color(primary);
+    font-size: 1.5em;
+    margin: 0;
+  }
+  &__time {
+    font-size: 1.1em;
+    font-family: "Courier New", Courier, monospace;
+  }
+  &__temp {
+    padding: 0 3px;
+    color: color(secondary);
+    font-weight: bold;
+  }
+  &__updated {
+    font-size: 0.7em;
+  }
+}

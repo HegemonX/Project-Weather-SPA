@@ -1,0 +1,31 @@
+@function color($color) {
+  @return map-get($map: $colors, $key: $color);
+}
+$colors: (
+  text: #000,
+  primary: #ff9e00,
+  primary-light: #ffe,
+  primary-dark: darken(#ff9e00, 20%),
+  secondary: #7608aa,
+  secondary-dark: darken(#7608aa, 20%),
+  title: #fff
+);
+$search-height: 1.2em;
+$compass: 1.5em;
+$desktop: 600px;
+$small: 290px;
+@mixin desktop {
+  @media screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+@mixin small {
+  @media screen and (min-width: #{$small}) {
+    @content;
+  }
+}
+@mixin orientation {
+  @media (orientation: landscape) {
+    @content;
+  }
+}

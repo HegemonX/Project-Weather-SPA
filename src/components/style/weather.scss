@@ -1,0 +1,52 @@
+@import "./index.scss";
+
+.weather {
+  flex: 1 1;
+  padding: 0 0.5em;
+  margin-bottom: 0.5em;
+  min-width: 6.5em;
+
+  @include small {
+    max-width: 5em;
+  }
+
+  &__date {
+    color: color(primary);
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+  }
+  &__icon {
+    display: block;
+    width: 4em;
+    height: auto;
+  }
+
+  &__title {
+    // position: relative;
+  }
+
+  &__wind-icon {
+    content: " ";
+    top: 0;
+    position: absolute;
+    width: $compass;
+    height: $compass;
+    background-image: url(../static/icon/wind.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__weather-unit {
+    position: relative;
+  }
+}
+
+.weather-unit {
+  &__title {
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
+  &__measure {
+  }
+}
