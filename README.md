@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Основные черты: 
 
-## Available Scripts
+Отзывчивая верстка, Кроссбраузерность, адаптивность, React, Redux, AJAX, ie11.
 
-In the project directory, you can run:
+SPA показа погоды по ближайшему городу относительно ip пользователя,
+либо по выбранному городу через поиск. Также имеется карта, на которой отмечены
+ближайшие города, где есть информация по погоде.
+Приложение протестировано и работает в ie11 (кроме svg анимации индикатора загрузки).
+
+## Запуск:
+
+### `npm install`
+
+### `node configureProxy.js`
+  
+**если менять порт, то еще надо поменять в `api/index/PROXY_URL`**
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Возможный bad user experience и варианты доработки:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1) блокировщий рекламы может блокировать прямой запрос к сервису геолокации
+  - получать ip пользователя через приложение и делать запрос на сервис геолокации через прокси с непосредственным ip адресом пользователя
+  - добавить обработку ошибок, чтобы делать запрос по городу по умолчанию в случае неудачи (в блоки catch в actions + при необходимости доп. дейсвия в reducer функциях при событиях `type: "..._ERROR"`, которые диспатчатся при любом неудачном запросе)
 
-### `npm test`
+2) недостаточный список городов
+  - использовать другое API :).
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3) Добавить состояние isFetching (true/false) к другим запросам (сейчас только на поиске) - (доп индикаторы загрузки + доп защита от спама запросов, кроме throttle)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+4) не переключается найденный в поиске город на текущий
+  - добавить в стейт приложения последний открытый город и делать рендер компонентов на его основе
+  
+Сделал за ~4 дня.
