@@ -1,7 +1,7 @@
 import baseGetRequest from "./requests/baseGetRequest";
 import { handleOK } from "./requests/baseHandlers";
 
-export const PROXY_URL = `http://127.0.0.1:8080/`;
+export const PROXY_URL = `https://corsproxy-app.herokuapp.com/`;
 const WEATHER_BASE_URL = "https://www.metaweather.com/";
 export const WEATHER_URL = WEATHER_BASE_URL + "api/location/";
 export const WEATHER_STATIC_URL = WEATHER_BASE_URL + "static/img/weather/";
