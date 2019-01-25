@@ -16,7 +16,9 @@ SPA показа погоды по ближайшему городу относ�
 ### `npm install`
 
 **Поменять адрес в `api/index.js PROXY_URL` на порты в файле `configureProxy.js`**
+
 Например:
+
 `export const PROXY_URL = 'https://127.0.0.1:8080/';`
 
 ### `node configureProxy.js`
